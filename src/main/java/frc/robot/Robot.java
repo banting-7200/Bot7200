@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
   public static ColorSensorSubsystem m_colorsensorsubsystem = new ColorSensorSubsystem();
   public static LiftSubsystem m_liftsubsystem = new LiftSubsystem();
   //public static LogitechJoystick m_joystick = Config.getController("controls.main");
-
+  //a fun test
   I2CCOM arduinoI2C;
 
   public PingController pingController;

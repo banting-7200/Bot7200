@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_chooser.setDefaultOption("Default Auto", new DriveCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    this.Lift = new CSMSubsystem(7); //create a CSM using CSMSubsystem
+    this.Lift = new CSMSubsystem(4); //create a CSM using CSMSubsystem
     this.colorwheelspinner = new LimitSubsystem(1);//limit switch for the color spinner
     this.colorwheelpiston = new PneumaticsSubsystem(1, 1);//setting the can Adress of the PCM and the port on PCM
     this.LiftlockPiston = new PneumaticsSubsystem(1, 2);
@@ -108,14 +108,14 @@ public class Robot extends TimedRobot {
     boolean retractColorWheel = controller.getButton(7);
 //****************lift CODE******************/
     if (theLift){
-      this.Lift.encoderup(7,250);
+      this.Lift.encoderup(4,250);
       this.LiftlockPiston.ToggleSolenoid(true);//turns the lift lock off
     }else{
       this.Lift.stop();
       this.LiftlockPiston.ToggleSolenoid(false);//urns the lift lock on
     }
     if (theLift1){
-      this.Lift.encoderdown(7);
+      this.Lift.encoderdown(4);
       this.LiftlockPiston.ToggleSolenoid(true);
 
     }else{

@@ -119,20 +119,20 @@ public class Robot extends TimedRobot {
 //**************Limit Switch Code****************/
     if (limitSwitch.getLimit()){
       System.out.println("Bruh switch bruh switch");
-      driveCommand.cancel();
+      driveCommand.cancel();  
     }else{
       driveCommand.start();
     }
 //************Limit Switch Code END***************/
 
 
-    /*if (controller.getButton(1)) {
+    if (controller.getButton(1)) {
       arduinoI2C.sendData(1, 1);
     }
     if (controller.getButton(2)) {
       arduinoI2C.sendData(1, 0);
 
-    }*/
+    }
   }
 
   @Override

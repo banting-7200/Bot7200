@@ -4,18 +4,22 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.LiftSubsystem;
+import frc.robot.subsystems.CSMSubsystem;
 import frc.robot.controllers.Controller;
 import frc.robot.controllers.LogitechJoystick;
+
 
 import frc.robot.utils.Config;
 
 
 
 public class LiftCommand extends Command {
+    public CSMSubsystem Lift;
+    public LiftSubsystem theLift;
+
     public LiftCommand() {
         requires(Robot.m_drivetrainsubsystem);
     }
-
     
 
     public void checkLift(){ // srotation -- Specified Rotation
@@ -28,7 +32,7 @@ public class LiftCommand extends Command {
       boolean theLift1 = controller.getButton(3);
 
         if (theLift){
-            Robot.m_liftsubsystem.Lift.encoderup(7, LiftSubsystem.SRotation);
+            Robot.m_liftsubsystem.Lift.encoderup(2, LiftSubsystem.SRotation);
             Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(true);//turns the lift lock off
           }else{
             Robot.m_liftsubsystem.Lift.stop();

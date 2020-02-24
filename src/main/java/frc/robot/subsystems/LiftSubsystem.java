@@ -15,8 +15,8 @@ public class LiftSubsystem extends Subsystem {
     public static int SRotation;
 
     public LiftSubsystem() {
-        this.Lift = new CSMSubsystem(7);
-        this.LiftlockPiston = new PneumaticsSubsystem(1, 2);
+        this.Lift = new CSMSubsystem(4);
+        this.LiftlockPiston = new PneumaticsSubsystem(2, 2);
     }
 
     @Override
@@ -30,9 +30,7 @@ public class LiftSubsystem extends Subsystem {
     /*
     boolean theLift = controller.getButton(5);
     boolean theLift1 = controller.getButton(3);
-
     this.LiftlockPiston.ToggleSolenoid(false);
-
     public void checkLift(){ // srotation -- Specified Rotation
         if (theLift){
             this.Lift.encoderup(7, SRotation);

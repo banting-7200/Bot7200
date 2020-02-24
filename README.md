@@ -1,6 +1,6 @@
-# Team 7200's Robot Code
+# Team 7200's Robot Code | Danny's Testing Grounds
 
-A command-based robot.
+Danny's testing grounds for new or untested projects involving the roboRIO.
 
 ## Vendor Libs
 

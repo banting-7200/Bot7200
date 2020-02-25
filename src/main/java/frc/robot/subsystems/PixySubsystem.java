@@ -11,12 +11,8 @@ public class PixySubsystem extends Subsystem {
 
     public PixySubsystem Pixy;
 
-    public PixySubsystem() {
-        this.Pixy = new PixySubsystem(1)
-    }
-
     @Override
-    protected void initDefaultCommand(){
+    protected void initDefaultCommand() {
         setDefaultCommand(new PixyCommand());
     }
 }

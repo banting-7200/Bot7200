@@ -6,22 +6,28 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.controllers.Controller;
-import frc.utils.I2CCOM;
-
 import frc.robot.utils.Config;
+import frc.robot.utils.I2CCOM;
 
-I2CCOM arduinoI2C;
+
 
 public class PixyCommand extends Command {
     public PixyCommand() {
         requires(Robot.m_pixysubsystem);
     }
 
-    @Override
-    protected void trackSignature(int signature){
+    public I2CCOM arduinoI2C;
+    public int signature;
 
-        arduinoI2C.sendData(1, this.signature + 1);
+    public void trackSignature(int signature){
+
+        arduinoI2C.sendData(1, this.signature + 3); // Sends data to the arduino. 4 is the ball, 5 is the tape. Arduino handles processing of it afterwards
 
     }
+
+	@Override
+	protected boolean isFinished() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

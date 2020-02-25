@@ -26,6 +26,7 @@ import frc.robot.subsystems.LiftSubsystem;
 import frc.robot.subsystems.CSMDriveTrain;
 import frc.robot.subsystems.ColorSensorSubsystem;
 import frc.robot.subsystems.base.DriveTrainSubsystem;
+import frc.robot.subsystems.PixySubsystem;
 import frc.robot.utils.Config;
 import frc.robot.utils.I2CCOM;
 
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
   public static DriveTrainSubsystem m_drivetrainsubsystem = new SparkDriveTrain(); // CAN Spark MAX motor
   public static ColorSensorSubsystem m_colorsensorsubsystem = new ColorSensorSubsystem();
   public static LiftSubsystem m_liftsubsystem = new LiftSubsystem();
+  public static PixySubsystem m_pixysubsystem = new PixySubsystem();
   public static LimitSubsystem limitSwitch =  new LimitSubsystem(1);
   //public static LogitechJoystick m_joystick = Config.getController("controls.main");
 

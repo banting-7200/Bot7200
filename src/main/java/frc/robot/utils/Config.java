@@ -28,6 +28,13 @@ public class Config {
         mainController.setPort(getInt("defaults.controller_port"));
         set("controls.main", mainController);
 
+         //************lift*************//
+         set("controls.liftup", 5);
+         set("controls.liftdown", 3);
+         set("lift.id",7);
+         set("number.of.rotations",200);
+         //**********lift end************//
+
     }
 
     /**

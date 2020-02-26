@@ -19,10 +19,12 @@ public class PixyCommand extends Command {
     public I2CCOM arduinoI2C;
     public int signature;
 
-    public void trackSignature(int signature){
+    public void trackBalls(){
+        arduinoI2C.sendData(1, 1);
+    }
 
-        arduinoI2C.sendData(1, this.signature + 3); // Sends data to the arduino. 4 is the ball, 5 is the tape. Arduino handles processing of it afterwards
-
+    public void trackTape(){
+        arduinoI2C.sendData(1, 2);
     }
 
 	@Override

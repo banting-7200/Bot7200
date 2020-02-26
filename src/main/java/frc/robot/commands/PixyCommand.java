@@ -17,15 +17,17 @@ public class PixyCommand extends Command {
     }
 
     public I2CCOM arduinoI2C;
-    public int signature;
 
     public void trackBalls(){
-        arduinoI2C.sendData(1, 1);
+        byte[] buffer = new byte[]{};
+        arduinoI2C.getData(1, 3, buffer);
+
+        if (buffer[0] == 1) {
+            System.out.println("BRuh!");
+        }
     }
 
-    public void trackTape(){
-        arduinoI2C.sendData(1, 2);
-    }
+    
 
 	@Override
 	protected boolean isFinished() {

@@ -103,12 +103,11 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    driveCommand.start();
-    liftCommand.start();
+    //liftCommand.start();
    // this.LiftlockPiston.ToggleSolenoid(false);
     Controller controller = Config.getController("controls.main");
 
-
+    driveCommand.start();
     //fix latter
     if (controller.getButton(10)) {
       System.out.println("Button 10 be like");

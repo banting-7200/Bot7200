@@ -23,9 +23,9 @@ public class SparkDriveTrain extends DriveTrainSubsystem {
         drive_train.arcadeDrive(joystick.getY() * getSpeed() * joystick.speed, joystick.getX() * getSpeed() * joystick.speed);
     }
 
-    @Override
+    /*@Override
     public void drive(double movementSpeed, double turnSpeed, double speed) {
         drive_train.arcadeDrive(movementSpeed * speed, turnSpeed * speed);
-    }
+    }*/
 
 }

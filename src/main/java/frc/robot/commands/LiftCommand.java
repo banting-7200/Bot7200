@@ -19,7 +19,7 @@ public class LiftCommand extends Command {
     @Override
     protected void execute() {
   
-      Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
+      //Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
 
       Controller controller = Config.getController("controls.main");
 
@@ -33,28 +33,28 @@ public class LiftCommand extends Command {
       if (true) {
         if (liftUp){
             Robot.m_liftsubsystem.Lift.encoderup(CanID, Rotation);
-            Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(true);//turns the lift lock off
+          //  Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(true);//turns the lift lock off
           }else{
             Robot.m_liftsubsystem.Lift.stop();
-            Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);//urns the lift lock on
+          //  Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);//urns the lift lock on
           }
           if (liftDown){
             Robot.m_liftsubsystem.Lift.encoderdown(CanID);
-            Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(true);
+          //  Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(true);
       
           }else{
             Robot.m_liftsubsystem.Lift.stop();
-            Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
+          //  Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
           }
       } else {
-        Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
+        //Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
       }
     }
 
     @Override
     protected boolean isFinished() {
       Robot.m_liftsubsystem.Lift.stop();
-      Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
+      //Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
       return false;
     }
 }

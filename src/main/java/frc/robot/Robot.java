@@ -32,6 +32,7 @@ public class Robot extends TimedRobot {
   public static ColorSensorSubsystem m_colorsensorsubsystem = new ColorSensorSubsystem();
   public static LiftSubsystem m_liftsubsystem = new LiftSubsystem();
   public static SparkSubsystem intakeSpark = new SparkSubsystem(6);
+  public static SparkSubsystem shiftSpark = new SparkSubsystem(7);
   //public static LogitechJoystick m_joystick = Config.getController("controls.main");
   //a fun test
   I2CCOM arduinoI2C;
@@ -56,7 +57,7 @@ public class Robot extends TimedRobot {
     this.Lift = new CSMSubsystem(4); //create a CSM using CSMSubsystem
     this.colorwheelspinner = new LimitSubsystem(1);//limit switch for the color spinner
     this.colorwheelpiston = new PneumaticsSubsystem(1, 1);//setting the can Adress of the PCM and the port on PCM
-    this.LiftlockPiston = new PneumaticsSubsystem(1, 2);
+    this.LiftlockPiston = new PneumaticsSubsystem(2, 2);
     
   }
 
@@ -131,6 +132,17 @@ public class Robot extends TimedRobot {
     }else{
       this.Lift.stop();
       this.LiftlockPiston.ToggleSolenoid(false);
+    }
+
+    if (controller.getButton(10)) {
+      System.out.println("Button 10 be like");
+      this.shiftSpark.start(1);
+    } else if (controller.getButton(9)) {
+      
+      System.out.println("Button 9 be like");
+      this.shiftSpark.start(-1);
+    } else {
+      this.shiftSpark.stop();
     }
 //**************lift CODE END****************/
 //*****************Pneumatics*******************/

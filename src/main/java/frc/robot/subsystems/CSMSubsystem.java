@@ -49,30 +49,30 @@ public class CSMSubsystem extends Subsystem {
         }else{
         liftspeed = -1; // negative lift speed equals up
         }
-        System.out.print("rotation  :");
-        System.out.println(rotation);
-
-        System.out.print("     liftpos  :");
-        System.out.println(liftpos);
-
+        
         this.NEWCSM.set(liftspeed);// run the motor
     }
 
     public void encoderdown(int canadress, int rotation){
         this.m_encoder = new CANEncoder(NEWCSM);
         this.NEWCSM = new CANSparkMax(canadress, MotorType.kBrushless);
-        double liftspeed;
+        double liftspeed = 0;
         double liftpos = (m_encoder.getPosition());
-        if (liftpos > -1){
-            liftspeed = -0.2;
-        }
-        if (liftpos > - 50){
+
+        if (liftpos < -50){
+            liftspeed = 1;
+        }if (liftpos > -49){
             liftspeed = 0.2;
-        }if (liftpos > -2){
+        }if (liftpos > -1){
             liftspeed = 0;
-        }else{
-        liftspeed = 1;
         }
+        System.out.print("rotation  :");
+        System.out.println(rotation);
+
+        System.out.print("     liftpos  :");
+        System.out.println(liftpos);
+
+    
 		this.NEWCSM.set(liftspeed);
        
     }

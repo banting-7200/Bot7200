@@ -29,7 +29,6 @@ public class LiftCommand extends Command {
       int Rotation = (Config.getInt("number.of.rotations"));
 
 
-      //if (!Robot.limitSwitch.getLimit()) {
       if (true) {
         if (liftUp){
             Robot.m_liftsubsystem.Lift.encoderup(CanID, Rotation);

@@ -16,6 +16,8 @@ public class CSMSubsystem extends Subsystem {
     public CANSparkMax NEWCSM;
     private CANEncoder m_encoder;
 
+    
+
     public CSMSubsystem(int canadress) {
         this.NEWCSM = new CANSparkMax(canadress, MotorType.kBrushless);// new brushless motor object for elevator
         this.NEWCSM.set(0);// initially sets the motor to stop
@@ -33,33 +35,45 @@ public class CSMSubsystem extends Subsystem {
     public void encoderup(int canadress, int rotation){
         this.m_encoder = new CANEncoder(NEWCSM);
         this.NEWCSM = new CANSparkMax(canadress, MotorType.kBrushless);
-        System.out.println(m_encoder.getPosition());
-        double liftspeed = (m_encoder.getPosition() + rotation) / -20;// this sets the lift speed and slows the motor
-																			// down as it gets nearer to its stopping
-																			// point
+        double liftspeed;
+        double liftpos = (m_encoder.getPosition());
+        if (liftpos < rotation - 1){ //if we pass hight limit we go down
+            liftspeed = 0.2;
+        }
+        if (liftpos < rotation + 80 && liftpos > rotation + 10){ // change the speed as we get close to the top
+            liftspeed = -0.3;
+        }if (liftpos < rotation + 10){
+            liftspeed = -0.1;
+        } if (liftpos < rotation){ // this stops the motor
+            liftspeed = 0;
+        }else{
+        liftspeed = -1; // negative lift speed equals up
+        }
+        System.out.print("rotation  :");
+        System.out.println(rotation);
 
-				if (liftspeed >= 1.0) {
-					liftspeed = -1.0;// the motor cannot run faster than 1.0, so if a faster run is requested, this
-									// will constrain the value
-				}
-				if (liftspeed <= 1.0) {
-					liftspeed = -1.0;
-				}
+        System.out.print("     liftpos  :");
+        System.out.println(liftpos);
 
-				this.NEWCSM.set(liftspeed);// run the motor
+        this.NEWCSM.set(liftspeed);// run the motor
     }
 
-    public void encoderdown(int canadress){
+    public void encoderdown(int canadress, int rotation){
         this.m_encoder = new CANEncoder(NEWCSM);
         this.NEWCSM = new CANSparkMax(canadress, MotorType.kBrushless);
-        System.out.println(m_encoder.getPosition());
-        double liftspeed = (m_encoder.getPosition()) / -20;
-
-				if (liftspeed <= -0.6) {
-					liftspeed = -0.6;
-				}
-
-				this.NEWCSM.set(liftspeed);
+        double liftspeed;
+        double liftpos = (m_encoder.getPosition());
+        if (liftpos > -1){
+            liftspeed = -0.2;
+        }
+        if (liftpos > - 50){
+            liftspeed = 0.2;
+        }if (liftpos > -2){
+            liftspeed = 0;
+        }else{
+        liftspeed = 1;
+        }
+		this.NEWCSM.set(liftspeed);
        
     }
 
@@ -69,5 +83,4 @@ public class CSMSubsystem extends Subsystem {
         // fucking usless garbage 
 
     }
-
 }

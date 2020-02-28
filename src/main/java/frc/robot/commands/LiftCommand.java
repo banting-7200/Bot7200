@@ -27,9 +27,8 @@ public class LiftCommand extends Command {
       boolean liftDown = controller.getButton(Config.getInt("controls.liftdown"));
       int CanID = (Config.getInt("lift.id"));
       int Rotation = (Config.getInt("number.of.rotations"));
+      System.out.println(liftUp);
 
-
-      if (true) {
         if (liftUp){
             Robot.m_liftsubsystem.Lift.encoderup(CanID, Rotation);
           //  Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(true);//turns the lift lock off
@@ -45,10 +44,9 @@ public class LiftCommand extends Command {
             Robot.m_liftsubsystem.Lift.stop();
           //  Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
           }
-      } else {
-        //Robot.m_liftsubsystem.LiftlockPiston.ToggleSolenoid(false);
       }
-    }
+  
+
 
     @Override
     protected boolean isFinished() {

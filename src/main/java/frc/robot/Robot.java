@@ -104,7 +104,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     driveCommand.start();
-    //liftCommand.start();
+    liftCommand.start();
    // this.LiftlockPiston.ToggleSolenoid(false);
     Controller controller = Config.getController("controls.main");
     //fix latter

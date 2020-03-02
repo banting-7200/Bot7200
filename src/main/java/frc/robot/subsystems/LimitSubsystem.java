@@ -7,11 +7,11 @@ public class LimitSubsystem extends Subsystem {
 
     public DigitalInput NEWINPUT;
 
-    public LimitSubsystem(int port){
-        this.NEWINPUT = new DigitalInput(port);
+    public LimitSubsystem(){
     }
-
-    public boolean getlimit(){
+    
+    public boolean getlimit(int port){
+        this.NEWINPUT = new DigitalInput(port);
         return this.NEWINPUT.get();
     }
 

@@ -6,6 +6,7 @@ import com.revrobotics.ColorSensorV3;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -21,7 +22,6 @@ import frc.robot.subsystems.CSMSubsystem;
 //import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.SparkDriveTrain;
 import frc.robot.subsystems.SparkSubsystem;
-import frc.robot.subsystems.LimitSubsystem;
 import frc.robot.subsystems.LiftSubsystem;
 import frc.robot.subsystems.ColorSensorSubsystem;
 import frc.robot.subsystems.DriveTrainSubsystem;
@@ -31,18 +31,17 @@ import frc.robot.utils.I2CCOM;
 public class Robot extends TimedRobot {
   public static DriveTrainSubsystem m_drivetrainsubsystem = new SparkDriveTrain(); // CAN Spark MAX motor
   public static ColorSensorSubsystem m_colorsensorsubsystem = new ColorSensorSubsystem();
-  public static LimitSubsystem m_LimitSubsystem = new LimitSubsystem();
+  public static DigitalInput m_liftLimit = new DigitalInput(8);
   public static LiftSubsystem m_liftsubsystem = new LiftSubsystem();
   public static SparkSubsystem intakeSpark = new SparkSubsystem(6);
   public static SparkSubsystem shiftSpark = new SparkSubsystem(7);
+
   //public static LogitechJoystick m_joystick = Config.getController("controls.main");
   //a fun test
   I2CCOM arduinoI2C;
 
   public PingController pingController;
   public CSMSubsystem Lift;//creats a vareable for a CSM (CSMSubsystem)
-  public LimitSubsystem colorwheelspinner;
-  public LimitSubsystem encoderReset;
   //public PneumaticsSubsystem colorwheelpiston;
   //public PneumaticsSubsystem LiftlockPiston;
 

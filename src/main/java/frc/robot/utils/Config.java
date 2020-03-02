@@ -40,7 +40,7 @@ public class Config {
          set("lift.down.fast.pos",-50);
          set("lift.down.slow.pos",-49);
          set("lift.can.id",4);
-         set("lift.switch.pin",0);
+         set("lift.switch.pin",8);
          //**********lift end************//
 
     }

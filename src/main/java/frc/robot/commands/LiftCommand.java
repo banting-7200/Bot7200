@@ -25,6 +25,8 @@ public class LiftCommand extends Command {
 
       boolean liftUp = controller.getButton(Config.getInt("controls.liftup"));
       boolean liftDown = controller.getButton(Config.getInt("controls.liftdown"));
+      boolean liftShiftSparkL = controller.getButton(Config.getInt("controls.lift.shift.l"));
+      boolean liftShiftSparkR = controller.getButton(Config.getInt("controls.lift.shift.r"));
       int CanID = (Config.getInt("lift.can.id"));
       int Rotation = (Config.getInt("number.of.rotations"));
       int FastSpeedUp = (Config.getInt("lift.up.fast.pos"));
@@ -32,6 +34,15 @@ public class LiftCommand extends Command {
       int FastSpeedDown = (Config.getInt("lift.down.fast.pos"));
       int SlowSpeedDown = (Config.getInt("lift.down.slow.pos"));
       int SwitchPin = (Config.getInt("lift.switch.pin"));
+
+       if (liftShiftSparkL) {
+          Robot.shiftSpark.start(1);
+        } else if (liftShiftSparkR) {
+          Robot.shiftSpark.start(-1);
+        } else {
+          Robot.shiftSpark.stop();
+        }   
+    
 
         if (Robot.m_LimitSubsystem.getlimit(SwitchPin)){
           Robot.m_liftsubsystem.Lift.encoderReset();

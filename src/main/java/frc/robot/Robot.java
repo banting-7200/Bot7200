@@ -109,20 +109,7 @@ public class Robot extends TimedRobot {
     liftCommand.start();
    // this.LiftlockPiston.ToggleSolenoid(false);
     Controller controller = Config.getController("controls.main");
-    //fix latter
-    if (controller.getButton(10)) {
-      System.out.println("Button 10 be like");
-      Robot.shiftSpark.start(1);
-    } else if (controller.getButton(9)) {
-      
-      System.out.println("Button 9 be like");
-      Robot.shiftSpark.start(-1);
-    } else {
-      Robot.shiftSpark.stop();
-    }   
   }
-  //fix latter
-
   @Override
   public void testPeriodic() {
   }
